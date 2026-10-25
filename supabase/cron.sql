@@ -11,5 +11,5 @@ select cron.unschedule('gza-tick') where exists (select 1 from cron.job where jo
 select cron.schedule(
   'gza-tick',
   '*/10 * * * *',
-  $$ select net.http_get(url := 'APP_URL/api/cron') $$
+  $$ select net.http_get(url := 'https://gza-dispatch.vercel.app/api/cron') $$
 );
